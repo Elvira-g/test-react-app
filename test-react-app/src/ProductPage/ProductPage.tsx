@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Hero } from '../components/Hero/Hero'
 import { ProductType } from '../store/store'
-import { Hero } from './Hero/Hero'
 import { ProductDetail } from './ProductDetail/ProductDetail'
 import { RelatedProducts } from './RelatedProducts/RelatedProducts'
 
@@ -14,7 +14,7 @@ export const ProductPage: React.FC<ProductPagePropsType> = ({product, setProduct
 
     return (
         <div>
-            <Hero />
+            <Hero title='We provide you' span='Fashionable Stuffs'/>
             <ProductDetail product={product} />
             <RelatedProducts setProductId={setProductId} />
         </div>

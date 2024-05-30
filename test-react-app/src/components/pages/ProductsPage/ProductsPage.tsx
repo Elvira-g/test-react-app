@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroProducts } from './HeroProducts/HeroProducts'
+import { Hero } from '../../Hero/Hero'
 import { Products } from './Products/Products'
 
 type ProductsPagePropsType = {
@@ -11,7 +11,7 @@ export const ProductsPage: React.FC<ProductsPagePropsType> = ({setProductId}) =>
 
     return (
         <div>
-            <HeroProducts />
+            <Hero title='Choose your' span='favorite stuffs' />
             <Products setProductId={setProductId} />
         </div>
     )

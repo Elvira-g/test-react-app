@@ -1,8 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { NavLink } from '../NavLink/NavLink'
 
 type FooterPropsType = {
 
 }
+
+const navLinks = [
+    {
+        title: 'Story',
+        link: '/story'
+    },
+    {
+        title: 'Products',
+        link: '/products'
+    },
+    {
+        title: 'FAQs',
+        link: '/faq'
+    },
+    {
+        title: 'Privacy policy',
+        link: '/'
+    },
+    {
+        title: 'Contact',
+        link: '/contact'
+    }
+]
 
 export const Footer: React.FC<FooterPropsType> = (props) => {
 
@@ -12,24 +37,16 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
                 <div className="row">
 
                     <div className="col-lg-3 col-10 me-auto mb-4">
-                        <h4 className="text-white mb-3"><a href="index.html">Little</a> Fashion</h4>
+                        <h4 className="text-white mb-3"><Link to="/">Little</Link> Fashion</h4>
                         <p className="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Little Fashion</strong></p>
-                        <p className="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                        <p className="copyright-text">Designed by <Link to="#" target="_blank">Tooplate</Link></p>
                     </div>
 
                     <div className="col-lg-5 col-8">
                         <h5 className="text-white mb-3">Sitemap</h5>
 
                         <ul className="footer-menu d-flex flex-wrap">
-                            <li className="footer-menu-item"><a href="about.html" className="footer-menu-link">Story</a></li>
-
-                            <li className="footer-menu-item"><a href="#" className="footer-menu-link">Products</a></li>
-
-                            <li className="footer-menu-item"><a href="#" className="footer-menu-link">Privacy policy</a></li>
-
-                            <li className="footer-menu-item"><a href="#" className="footer-menu-link">FAQs</a></li>
-
-                            <li className="footer-menu-item"><a href="#" className="footer-menu-link">Contact</a></li>
+                            {navLinks.map((link, key) => <NavLink key={key} title={link.title} link={link.link} classNameLi='footer-menu-item' classNameA='footer-menu-link' />)}
                         </ul>
                     </div>
 
@@ -38,13 +55,13 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
 
                         <ul className="social-icon">
 
-                            <li><a href="#" className="social-icon-link bi-youtube"></a></li>
+                            <li><Link to="#" className="social-icon-link bi-youtube"></Link></li>
 
-                            <li><a href="#" className="social-icon-link bi-whatsapp"></a></li>
+                            <li><Link to="#" className="social-icon-link bi-whatsapp"></Link></li>
 
-                            <li><a href="#" className="social-icon-link bi-instagram"></a></li>
+                            <li><Link to="#" className="social-icon-link bi-instagram"></Link></li>
 
-                            <li><a href="#" className="social-icon-link bi-skype"></a></li>
+                            <li><Link to="#" className="social-icon-link bi-skype"></Link></li>
                         </ul>
                     </div>
 
