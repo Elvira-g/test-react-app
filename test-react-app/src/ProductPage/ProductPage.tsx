@@ -1,23 +1,20 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Hero } from '../components/Hero/Hero'
-import { ProductType } from '../store/store'
-import { ProductDetail } from './ProductDetail/ProductDetail'
-import { RelatedProducts } from './RelatedProducts/RelatedProducts'
+import React from "react";
+import { Hero } from "../components/Hero/Hero";
+import { ProductType } from "../store/store";
+import { ProductDetail } from "./ProductDetail/ProductDetail";
+import { RelatedProducts } from "./RelatedProducts/RelatedProducts";
 
-type ProductPagePropsType = {
-    product: ProductType
-    setProductId: (id: number) => void
-}
+type Props = {
+  product: ProductType | undefined;
+  setProductId: React.Dispatch<React.SetStateAction<number>>;
+};
 
-export const ProductPage: React.FC<ProductPagePropsType> = ({product, setProductId}) => {
-
-    return (
-        <div>
-            <Hero title='We provide you' span='Fashionable Stuffs'/>
-            <ProductDetail product={product} />
-            <RelatedProducts setProductId={setProductId} />
-        </div>
-        
-    )
-}
+export const ProductPage = ({ product, setProductId }: Props) => {
+  return (
+    <div>
+      <Hero title='We provide you' span='Fashionable Stuffs' />
+      <ProductDetail product={product} />
+      <RelatedProducts setProductId={setProductId} />
+    </div>
+  );
+};
