@@ -1,8 +1,8 @@
 import React from "react";
-import { ProductType } from "../store/store";
-import { Hero } from "./Hero/Hero";
-import { ProductDetail } from "./ProductDetail/ProductDetail";
-import { RelatedProducts } from "./RelatedProducts/RelatedProducts";
+import { ProductType } from "../store";
+import { Hero } from "./Hero";
+import { ProductDetail } from "./ProductDetail";
+import { RelatedProducts } from "./RelatedProducts";
 
 type Props = {
   product: ProductType | undefined;

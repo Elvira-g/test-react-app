@@ -1,4 +1,4 @@
-import { ProductType } from "../../store/store";
+import { ProductType } from "../store";
 
 export const ProductDetail = ({
   product,
