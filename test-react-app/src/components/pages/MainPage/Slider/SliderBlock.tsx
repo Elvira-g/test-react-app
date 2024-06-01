@@ -5,17 +5,11 @@ import slide3 from '../../../../assets/img/slideshow/two-business-partners-worki
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Slide } from './Slide';
+import { SlideType } from '../../../../types/types';
 
 type SliderPropsType = {
 
-}
-
-
-type SlideType = {
-    title: string
-    desc: string
-    image: string
-    link: string
 }
 
 const slides: Array<SlideType> = [
@@ -39,31 +33,7 @@ const slides: Array<SlideType> = [
     }
 ]
 
-
-const Slide: React.FC<SlideType> = ({title, desc, image, link}) => {
-
-    return(
-        <div className="slick-custom">
-            <img src={image} className="img-fluid" alt=""/>
-
-            <div className="slick-bottom">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 col-10">
-                            <h1 className="slick-title">{title}</h1>
-
-                            <p className="lead text-white mt-lg-3 mb-lg-5">{desc}</p>
-
-                            <a href={link} className="btn custom-btn">Learn more about us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export const SliderBlock: React.FC<SliderPropsType> = (props) => {
+export const SliderBlock = (props: SliderPropsType) => {
 
     const settings = {
         dots: true,

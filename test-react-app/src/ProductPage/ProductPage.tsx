@@ -1,6 +1,6 @@
 import React from "react";
 import { Hero } from "../components/Hero/Hero";
-import { ProductType } from "../store/store";
+import { ProductType } from "../types/types";
 import { ProductDetail } from "./ProductDetail/ProductDetail";
 import { RelatedProducts } from "./RelatedProducts/RelatedProducts";
 

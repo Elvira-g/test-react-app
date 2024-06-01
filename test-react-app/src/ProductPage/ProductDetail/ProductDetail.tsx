@@ -1,4 +1,5 @@
-import { ProductType } from "../../store/store";
+import { ProductType } from "../../types/types";
+
 
 export const ProductDetail = ({
   product,

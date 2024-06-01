@@ -1,77 +1,24 @@
 import img1 from '../assets/img/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg'
 import img2 from '../assets/img/people/portrait-british-woman.jpeg'
 import img3 from '../assets/img/people/beautiful-woman-face-portrait-brown-background.jpeg'
-import product1 from "../assets/img/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg"
-import product2 from "../assets/img/product/quokkabottles-kFc1_G1GvKA-unsplash.jpeg"
-import product3 from "../assets/img/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg"
+import messenger from '../assets/img/icons/messenger.png'
+import youtube from '../assets/img/icons/youtube.png'
+import instagram from '../assets/img/icons/instagram.png'
+import whatsapp from '../assets/img/icons/whatsapp.png'
+import { FaqItem, MemberType, SocialProps } from '../types/types'
 
-
-export type MemberType = {
-    id: number
-    name: string
-    lastName: string
-    position: string
-    textMain: string
-    textFirst: string
-    textSecond: string
-    twit: string
-    linkedIn: string
-    email: string
-    image: string
-}
-
-// export type ProductType = {
-//     id: number
-//     title: string
-//     desc: string
-//     price: string
-//     image: string
-//     alert: string | null
-// }
-
-export type ProductType = {
-    id: number
-    name: string
-    product_type: string
-    price: string
-    image_link: string
-    brand: string
-    description: string
-}
 
 type StoreType = {
-    // products: Array<ProductType>,
     teamMembers: Array<MemberType>
+    faqItems: 
+        {
+            generalInfo: Array<FaqItem>
+            products: Array<FaqItem>
+        }
+    socials: Array<SocialProps>
 }
 
-
 export const store: StoreType = {
-    // products: [
-    //     {
-    //         id: 1,
-    //         title: 'Tree pot',
-    //         desc: 'Original package design from house',
-    //         price: '$25',
-    //         image: product1,
-    //         alert: 'New Arrival'
-    //     },
-    //     {
-    //         id: 2,
-    //         title: 'Fashion Set',
-    //         desc: 'Costume Package',
-    //         price: '$35',
-    //         image: product2,
-    //         alert: 'Low Price'
-    //     },
-    //     {
-    //         id: 3,
-    //         title: 'Juice Drinks',
-    //         desc: 'Nature made another world',
-    //         price: '$45',
-    //         image: product3,
-    //         alert: null
-    //     },
-    // ],
     teamMembers: [
         {
             id: 1,
@@ -111,6 +58,60 @@ export const store: StoreType = {
             linkedIn: '#',
             email: 'test@test.com',
             image: img3
+        }
+    ],
+    faqItems: {
+        generalInfo: [
+            {
+                id: '1',
+                title: 'What is this Little Fashion?',
+                text: 'Little Fashion is free Bootstrap 5 website template for everyone. There are 8 HTML pages included in this template and you can expand more pages as you need. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            {
+                id: '2',
+                title: ' What is Tooplate website?',
+                text: ' website to download free HTML website templates for your business or personal use. Tooplate website has been online for almost 8 years now. Thank you for visiting our website more pages as you need. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            {
+                id: '3',
+                title: 'How do I support your website?',
+                text: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            }
+        ],
+        products: [
+            {
+                id: '1',
+                title: 'What is this Little Fashion?',
+                text: 'Little Fashion is free Bootstrap 5 website template for everyone. There are 8 HTML pages included in this template and you can expand more pages as you need. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            {
+                id: '2',
+                title: ' What is Tooplate website?',
+                text: ' website to download free HTML website templates for your business or personal use. Tooplate website has been online for almost 8 years now. Thank you for visiting our website more pages as you need. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            {
+                id: '3',
+                title: 'How do I support your website?',
+                text: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            }
+        ]
+    },
+    socials: [
+        {
+            link: '#messenger',
+            icon: messenger
+        },
+        {
+            link: '#youtube',
+            icon: youtube
+        },
+        {
+            link: '#instagram',
+            icon: instagram
+        },
+        {
+            link: '#whatsapp',
+            icon: whatsapp
         }
     ]
 }

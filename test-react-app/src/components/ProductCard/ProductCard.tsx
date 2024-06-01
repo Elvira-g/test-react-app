@@ -1,20 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ProductType } from '../../store/store'
+import { ProductType } from '../../types/types'
 
 type ProductCartPropsType = {
     product: ProductType
-    setProductId: (id: number )=> void
+    setProductId: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const ProductCard: React.FC<ProductCartPropsType> = ({product, setProductId}) => {
+export const ProductCard = ({product, setProductId}: ProductCartPropsType) => {
 
     return(
         <div className="col-lg-4 col-12 mb-3">
             <div className="product-thumb">
-                <a href="product-detail.html">
-                    <img src={product.image_link} className="img-fluid product-image" alt=""/>
-                </a>
+                <img src={product.image_link} className="img-fluid product-image" alt=""/>
 
                 {product.brand !== null && <div className="product-top d-flex">
                     <span className="product-alert me-auto">{product.brand}</span>

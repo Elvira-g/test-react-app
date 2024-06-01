@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { MemberType, store } from '../../../store/store'
+import { store } from '../../../store/store'
+import { MemberType } from '../../../types/types'
 import { Hero } from '../../Hero/Hero'
 import { Team } from './Team/Team'
 import { Testimonial } from './Testimonial/Testimonial'
@@ -8,7 +9,7 @@ type StoryPagePropsType = {
 
 }
 
-export const StoryPage: React.FC<StoryPagePropsType> = (props) => {
+export const StoryPage = (props: StoryPagePropsType) => {
 
     const [modal, setModal] = useState(false)
     const [teamMembers, setTeamMembers] = useState<Array<MemberType>>([])
@@ -17,10 +18,7 @@ export const StoryPage: React.FC<StoryPagePropsType> = (props) => {
     const chooseMember = (chosenMember: MemberType) => setMember(chosenMember)
 
     useEffect(() => {
-        const fetchAllMembers = () => {
-            setTeamMembers(store.teamMembers)
-        }
-        fetchAllMembers()
+        setTeamMembers(store.teamMembers)
     }, [store.teamMembers])
 
     return (

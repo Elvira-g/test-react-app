@@ -1,5 +1,9 @@
 import React from 'react'
-import { MemberType } from '../../../../../store/store'
+import { Link } from 'react-router-dom'
+import twitImg from '../../../../../assets/img/icons/twitter.png'
+import linkedinImg from '../../../../../assets/img/icons/linkedin.png'
+import emailImg from '../../../../../assets/img/icons/email.png'
+import { MemberType } from '../../../../../types/types'
 
 type ModalPropsType = {
     member: MemberType
@@ -7,7 +11,7 @@ type ModalPropsType = {
     onClose: () => void
 }
 
-export const Modal: React.FC<ModalPropsType> = ({member, show, onClose}) => {
+export const Modal = ({member, show, onClose}: ModalPropsType) => {
     
     return (
            <>
@@ -38,11 +42,11 @@ export const Modal: React.FC<ModalPropsType> = ({member, show, onClose}) => {
                         <ul className="social-icon">
                             <li className="me-3"><strong>Where to find?</strong></li>
 
-                            <li><a href={member.twit} className="social-icon-link bi-twitter"></a></li>
+                            <li><Link to={member.twit} className="social-icon-link bi-twitter"><img className="social-icon" src={twitImg} alt='' /></Link></li>
 
-                            <li><a href={member.linkedIn} className="social-icon-link bi-linkedin"></a></li>
+                            <li><Link to={member.linkedIn} className="social-icon-link bi-linkedin"><img className="social-icon" src={linkedinImg} alt='' /></Link></li>
 
-                            <li><a href={member.email} className="social-icon-link bi-envelope"></a></li>
+                            <li><Link to={member.email} className="social-icon-link bi-envelope"><img className="social-icon" src={emailImg}alt='' /></Link></li>
                         </ul>
                     </div>
                 </div>

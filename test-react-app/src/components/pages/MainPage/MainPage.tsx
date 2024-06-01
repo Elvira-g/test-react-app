@@ -4,10 +4,10 @@ import { FeatureProducts } from './FeaturedProduct/FeatureProducts'
 import { FrontProduct } from './FrontProduct/FrontProduct'
 import { SliderBlock } from './Slider/SliderBlock'
 type MainPagePropsType = {
-    setProductId: (id:number) => void
+    setProductId: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const MainPage: React.FC<MainPagePropsType> = ({setProductId}) => {
+export const MainPage = ({setProductId}: MainPagePropsType) => {
 
     return (
         <div>

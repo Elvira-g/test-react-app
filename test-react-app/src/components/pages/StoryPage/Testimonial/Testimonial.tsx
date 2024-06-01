@@ -1,74 +1,27 @@
-import React from 'react'
-import img1 from '../../../../assets/img/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg'
-import img2 from '../../../../assets/img/people/beautiful-woman-face-portrait-brown-background.jpeg'
-import img3 from '../../../../assets/img/people/portrait-british-woman.jpeg'
-import img4 from '../../../../assets/img/people/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg'
+import axios from "axios";
+import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick'
+import { testimonialsAPI } from "../../../../api/testimonialsAPI";
+import { TestimonialType } from "../../../../types/types";
+import { Slide } from './Slide'
 
-type PropsType = {
+type Props = {
     
 }
 
-type SlidePropsType = {
-    slide: TestimonialType
-}
 
-type TestimonialType = {
-    id: number
-    name: string
-    img: string
-    company: string
-    text: string
-}
+export const Testimonial = (props: Props) => {
 
-const testimonials: Array<TestimonialType> = [
-    {
-        id: 1,
-        name: 'George',
-        img: img1,
-        company: 'Digital Art Fashion',
-        text: 'Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet'
-    },
-    {
-        id: 2,
-        name: 'Sandar',
-        img: img2,
-        company: 'Zoom Fashion Idea',
-        text: 'Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet'
-    },
-    {
-        id: 3,
-        name: 'Marie',
-        img: img3,
-        company: 'Art Fashion Design',
-        text: 'Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet'
-    },
-    {
-        id: 4,
-        name: 'Catherine',
-        img: img4,
-        company: 'Dress Fashion',
-        text: 'Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet'
+    const [testimonials, setTestimonials] = useState<Array<TestimonialType> | undefined>()
+
+    useEffect(() => {
+        getTestimonials()
+      }, []);
+
+    const getTestimonials = async () => {
+        let data = await testimonialsAPI()
+        setTestimonials(data);
     }
-]
-
-const Slide: React.FC<SlidePropsType> = ({slide}) => {
-
-    return (
-        <div className="slick-testimonial-caption">
-            <p className="lead">{slide.text}</p>
-
-            <div className="slick-testimonial-client d-flex align-items-center mt-4">
-                <img src={slide.img} className="img-fluid custom-circle-image me-3" alt="" />
-
-                <span>{slide.name}, <strong className="text-muted">{slide.company}</strong></span>
-            </div>
-        </div>
-    )
-
-}
-
-export const Testimonial: React.FC<PropsType> = (props) => {
 
     const settings = {
         dots: true,
@@ -93,9 +46,15 @@ export const Testimonial: React.FC<PropsType> = (props) => {
 
                             <div className="slick-testimonial">
 
-                                <Slider {...settings}>
-                                    {testimonials.map(t => <Slide key={t.id} slide={t} />)}
-                                </Slider>
+                                { testimonials ? 
+                                    <>
+                                        <Slider {...settings}>
+                                            {testimonials.map(t => <Slide key={t.id} slide={t} />)}
+                                        </Slider>
+                                    </>
+                                    : null
+                            }
+                                
                             </div>
                         </div>
 

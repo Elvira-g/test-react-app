@@ -1,12 +1,32 @@
 import React from 'react'
+import img from '../../../assets/img/header/positive-european-woman-has-break-after-work.jpg'
+import { FormContacts } from '../../Form/FormContacts'
+import { Hero } from '../../Hero/Hero'
+import { Contacts } from './Contacts'
 
 type ContactsPagePropsType = {
 
 }
 
-export const ContactsPage: React.FC<ContactsPagePropsType> = (props) => {
+export const ContactsPage = (props: ContactsPagePropsType) => {
 
     return(
-        <div>Contacts page</div>
+        <div>
+            <Hero title='Say hello to us' span='love to hear you' image={img}/>
+            <section className="contact section-padding">
+                <div className="container">
+                    <div className="row">
+                        
+                        <div className="col-lg-6 col-12">
+                            <h2 className="mb-4">Let's <span>begin</span></h2>
+
+                            <FormContacts />
+                        </div>
+                        <Contacts />
+
+                    </div>
+                </div>
+            </section>
+        </div>
     )
 }

@@ -10,7 +10,7 @@ import { FaqPage } from "./components/pages/FaqPage/FaqPage";
 import { MainPage } from "./components/pages/MainPage/MainPage";
 import { ProductsPage } from "./components/pages/ProductsPage/ProductsPage";
 import { StoryPage } from "./components/pages/StoryPage/StoryPage";
-import { ProductType } from "./store/store";
+import { ProductType } from "./types/types";
 
 function App() {
   const [productId, setProductId] = useState(1);
@@ -48,21 +48,6 @@ function App() {
             />
             <Route path="*" element={<div>404 NOT FOUND</div>} />
           </Routes>
-
-          {/* <Route path='/dialogs'
-                render={() => <SuspendedDialogs /> }/>
-
-              <Route path='/profile/:userId?'
-                render={() => <SuspendedProfile /> }/>
-
-              <Route path='/users'
-                render={() => <UsersPage pageTitle={"Самураи"}/>}/>
-
-              <Route path='/login'
-                render={() => <LoginPage/>}/>
-
-              <Route path='*'
-                render={() => <div>404 NOT FOUND</div>}/> */}
         </div>
 
         <Footer />

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap');
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 body {
   margin: 0;
@@ -910,6 +911,7 @@ button:focus:not(:focus-visible) {
 
 .product-image {
   transition: all 0.5s ease-out;
+  max-height: 190px;
 }
 
 .product-thumb:hover .product-image {
@@ -1050,6 +1052,11 @@ button:focus:not(:focus-visible) {
   padding: 0;
 }
 
+.social-icon img {
+  width: 30px;
+  height: 30px;
+}
+
 .social-icon li {
   list-style: none;
   display: inline-block;
@@ -1065,9 +1072,15 @@ button:focus:not(:focus-visible) {
   margin-right: 15px;
 }
 
+.social-icon-link img {
+  width: 40px;
+  height: 40px;
+}
+
 .social-icon-link:hover {
   color: var(--primary-color);
 }
+
 
 /*---------------------------------------
   RESPONSIVE STYLES               

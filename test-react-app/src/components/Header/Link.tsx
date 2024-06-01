@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import Nav from 'react-bootstrap/Nav';
 export const NavLink = ({ name, link }: { name: string; link: string }) => (
-  <li className="nav-item">
+  <Nav.Link>
     <Link className="nav-link" to={link}>
-      {name}
-    </Link>
-  </li>
+        {name}
+      </Link>
+  </Nav.Link>
 );

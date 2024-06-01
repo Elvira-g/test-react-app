@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { store } from '../../store/store'
+import { SocialProps } from '../../types/types'
 import { NavLink } from '../NavLink/NavLink'
+import { Social } from '../Social/Social'
 
 type FooterPropsType = {
 
@@ -24,12 +27,18 @@ const navLinks = [
         link: '/'
     },
     {
-        title: 'Contact',
-        link: '/contact'
+        title: 'Contacts',
+        link: '/contacts'
     }
 ]
 
-export const Footer: React.FC<FooterPropsType> = (props) => {
+export const Footer= (props:FooterPropsType) => {
+
+    const [socials, setSocials] = useState<Array<SocialProps> | undefined>(undefined)
+
+    useEffect(() => {
+        setSocials(store.socials)
+    }, [])
 
     return (
         <footer className="site-footer">
@@ -54,14 +63,12 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
                         <h5 className="text-white mb-3">Social</h5>
 
                         <ul className="social-icon">
-
-                            <li><Link to="#" className="social-icon-link bi-youtube"></Link></li>
-
-                            <li><Link to="#" className="social-icon-link bi-whatsapp"></Link></li>
-
-                            <li><Link to="#" className="social-icon-link bi-instagram"></Link></li>
-
-                            <li><Link to="#" className="social-icon-link bi-skype"></Link></li>
+                            {socials ? 
+                                <>
+                                    {socials.map((social, key) => <Social key={key} link={social.link} icon={social.icon} />)}
+                                </>
+                                : null
+                            }
                         </ul>
                     </div>
 

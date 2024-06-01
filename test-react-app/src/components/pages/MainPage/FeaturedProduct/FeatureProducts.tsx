@@ -1,23 +1,32 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ProductType, store } from '../../../../store/store'
+import { productsAPI } from '../../../../api/productsApi'
+import { ProductType } from '../../../../types/types'
+import { Preloader } from '../../../Preloader/Preloader'
 import { ProductCard } from '../../../ProductCard/ProductCard'
 
 type ProductsPropsType = {
-    setProductId: (id: number) => void
+    setProductId: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const FeatureProducts: React.FC<ProductsPropsType> = ({setProductId}) => {
+export const FeatureProducts = ({setProductId}: ProductsPropsType) => {
     
     const [products, setProducts] = useState<Array<ProductType>>([])
+    const [isFetching, setIsFetching] = useState(true)
 
     useEffect(() => {
-        const fetchAllProducts = async () => {
-            const res = await axios.get('http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&rating_greater_than=3.9&rating_less_than=4.1')
-            setProducts(res.data)
-        }
-        fetchAllProducts()
+        setIsFetching(true)
+        productsAPI.featured()
+        .then((data) => {
+            const newProducts: Array<ProductType> = []
+            for (let i = 0; i < 9; i++) {
+                    newProducts.push(data[i])
+            }
+            setProducts(newProducts)
+            setIsFetching(false)
+        })
+        .catch(()=> [])
     }, [])
 
     return (
@@ -28,7 +37,7 @@ export const FeatureProducts: React.FC<ProductsPropsType> = ({setProductId}) => 
                         <div className="col-12 text-center">
                             <h2 className="mb-5">Featured Products</h2>
                         </div>
-
+                        {isFetching ? <Preloader /> : null}
                         {products.map(product => <ProductCard product={product} key={product.id} setProductId={setProductId}/>)}
 
                         <div className="col-12 text-center">

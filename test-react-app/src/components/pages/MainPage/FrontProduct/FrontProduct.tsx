@@ -5,7 +5,7 @@ type FrontProductPropsType = {
 
 }
 
-export const FrontProduct: React.FC<FrontProductPropsType> = (props) => {
+export const FrontProduct = (props: FrontProductPropsType) => {
 
     return (
         <section className="front-product">

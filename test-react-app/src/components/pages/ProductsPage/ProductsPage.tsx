@@ -3,11 +3,11 @@ import { Hero } from '../../Hero/Hero'
 import { Products } from './Products/Products'
 
 type ProductsPagePropsType = {
-    setProductId: (id:number) => void
+    setProductId: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-export const ProductsPage: React.FC<ProductsPagePropsType> = ({setProductId}) => {
+export const ProductsPage = ({setProductId}: ProductsPagePropsType) => {
 
     return (
         <div>

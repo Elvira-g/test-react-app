@@ -3,10 +3,10 @@ import { NewArrivals } from './NewArrivals/NewArrivals'
 import { Popular } from './Popular/Popular'
 
 type ProductsPropsType = {
-    setProductId: (id: number) => void
+    setProductId: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const Products: React.FC<ProductsPropsType> = ({setProductId}) => {
+export const Products = ({setProductId}: ProductsPropsType) => {
 
     return(
         <section className="products section-padding">

@@ -1,24 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import img1 from "../../../../assets/img/pim-chu-z6NZ76_UTDI-unsplash.jpeg"
 import img2 from "../../../../assets/img/cody-lannom-G95AReIh_Ko-unsplash.jpeg"
-import { isTemplateSpan } from 'typescript'
+import { TabContent } from './TabContent'
 
 type AboutPropsType = {
 
 }
 
-type TabContentPropsType = {
-    tab: TabContentType,
-}
-
-
-type TabContentType = {
-    id: number
-    image: string
-    title: string
-    text: string
-    link: string
-}
 
 let contentList = [
     {
@@ -48,37 +36,7 @@ let contentList = [
     }
 ]
 
-type TabContentListType = typeof contentList
-
-const TabContent: React.FC<TabContentPropsType> = ({tab}) => {
-    return(
-        <div className={`tab-pane fade show active`}>
-
-            <div className="row">
-                <div className="col-lg-7 col-12">
-                    <img src={tab.image} className="img-fluid" alt=""/>
-                </div>
-
-                <div className="col-lg-5 col-12">
-                    <div className="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
-                        <h4 className="mb-3">{tab.title}</h4>
-
-                        <p>{tab.text}</p>
-
-                        <div className="mt-2 mt-lg-auto">
-                            <a href={tab.link} className="custom-link mb-2">
-                                Learn more about us
-                                <i className="bi-arrow-right ms-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export const About: React.FC<AboutPropsType> = (props) => {
+export const About = (props: AboutPropsType) => {
     const [ active, setActive ] = React.useState(0);
     
     // @ts-ignore

@@ -1,31 +1,38 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { ProductType } from '../../../../../store/store'
+import { productsAPI } from '../../../../../api/productsApi'
+import { ProductType } from '../../../../../types/types'
+import { Preloader } from '../../../../Preloader/Preloader'
 import { ProductCard } from '../../../../ProductCard/ProductCard'
 
 type NewArrivalsPropsType = {
-    setProductId: (id: number) => void
+    setProductId: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const NewArrivals: React.FC<NewArrivalsPropsType> = ({setProductId}) => {
+export const NewArrivals = ({setProductId}: NewArrivalsPropsType) => {
 
     const [products, setProducts] = useState<Array<ProductType>>([])
+    const [isFetching, setIsFetching] = useState(true)
 
     useEffect(() => {
-        const fetchAllProducts = async () => {
-            const res = await axios.get('http://makeup-api.herokuapp.com/api/v1/products.json?rating_greater_than=4.5')
-            const newProducts: Array<ProductType> = []
-            for (let i = 0; i < 3; i++) {
-                newProducts.push(res.data[i])
-            }
-            setProducts(newProducts)
-        }
-        fetchAllProducts()
+        setIsFetching(true)
+        getProducts()
     }, [])
+
+    const getProducts = async () => {
+        let data = await productsAPI.newArrival()
+        const newProducts: Array<ProductType> = []
+        for (let i = 0; i < 3; i++) {
+                newProducts.push(data[i])
+        }
+        setProducts(newProducts)
+        setIsFetching(false)
+    }
 
 
     return (
         <div className="row">
+            {isFetching ? <Preloader /> : null}
             {products.map(product => <ProductCard product={product} key={product.id} setProductId={setProductId} />)}
         </div>  
     )
