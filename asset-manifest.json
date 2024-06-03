@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/test-react-app/static/css/main.f758a293.css",
-    "main.js": "/test-react-app/static/js/main.e91788a3.js",
+    "main.js": "/test-react-app/static/js/main.fbffcb61.js",
     "static/js/453.09cc2d27.chunk.js": "/test-react-app/static/js/453.09cc2d27.chunk.js",
     "static/media/two-business-partners-working-together-office-computer.jpeg": "/test-react-app/static/media/two-business-partners-working-together-office-computer.69ed8dffd8df7396d13a.jpeg",
     "static/media/team-meeting-renewable-energy-project.jpeg": "/test-react-app/static/media/team-meeting-renewable-energy-project.82ac5580f67b2d3aa42b.jpeg",
@@ -26,11 +26,11 @@
     "static/media/slick.woff": "/test-react-app/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/test-react-app/index.html",
     "main.f758a293.css.map": "/test-react-app/static/css/main.f758a293.css.map",
-    "main.e91788a3.js.map": "/test-react-app/static/js/main.e91788a3.js.map",
+    "main.fbffcb61.js.map": "/test-react-app/static/js/main.fbffcb61.js.map",
     "453.09cc2d27.chunk.js.map": "/test-react-app/static/js/453.09cc2d27.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f758a293.css",
-    "static/js/main.e91788a3.js"
+    "static/js/main.fbffcb61.js"
   ]
 }
