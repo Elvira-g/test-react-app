@@ -12,7 +12,7 @@ let contentList = [
     image: img1,
     title: "Good Design Ideas for your fashion",
     text: "Since this HTML template is based on Boostrap 5 CSS library, you can feel free to add more components as you need. Since this HTML template is based on Boostrap 5 CSS library, you can feel free to add more components as you need.",
-    link: "#",
+    link: "/story",
   },
   {
     id: 1,

@@ -9,23 +9,23 @@ type ProductsPropsType = {
   setProductId: React.Dispatch<React.SetStateAction<number>>;
 };
 
+const getProducts = async () => {
+  let data = await productsAPI.featured();
+  const newProducts: Array<ProductType> = [];
+  for (let i = 0; i < 9; i++) {
+    newProducts.push(data[i]);
+  }
+  return newProducts;
+};
+
 export const FeatureProducts = ({ setProductId }: ProductsPropsType) => {
   const [products, setProducts] = useState<Array<ProductType>>([]);
   const [isFetching, setIsFetching] = useState(true);
 
   useEffect(() => {
     setIsFetching(true);
-    productsAPI
-      .featured()
-      .then((data) => {
-        const newProducts: Array<ProductType> = [];
-        for (let i = 0; i < 9; i++) {
-          newProducts.push(data[i]);
-        }
-        setProducts(newProducts);
-        setIsFetching(false);
-      })
-      .catch(() => []);
+    getProducts().then((data) => setProducts(data));
+    setIsFetching(false);
   }, []);
 
   return (

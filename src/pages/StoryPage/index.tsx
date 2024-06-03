@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Hero } from "../../components/Hero/Hero";
+import { Hero } from "../../components/Hero";
 import { store } from "../../store/store";
 import { MemberType } from "../../types";
 import { Team } from "./Team/Team";

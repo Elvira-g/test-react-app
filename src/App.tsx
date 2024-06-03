@@ -1,26 +1,30 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import { productAPI } from "./api/productsApi";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { ContactsPage } from "./pages/ContactsPage";
-import { FaqPage } from "./pages/FaqPage/FaqPage";
+import { FaqPage } from "./pages/FaqPage";
 import { MainPage } from "./pages/MainPage";
 import { ProductPage } from "./pages/ProductPage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { StoryPage } from "./pages/StoryPage";
 import { ProductType } from "./types";
 
+
 function App() {
   const [productId, setProductId] = useState(1);
   const [product, setProduct] = useState<ProductType | undefined>(undefined);
 
   useEffect(() => {
-    axios
-      .get(`http://makeup-api.herokuapp.com/api/v1/products/${productId}.json`)
-      .then((res) => setProduct(res.data));
+    getProduct(productId).then((data) => setProduct(data));
   }, [productId]);
+
+  const getProduct = async (productId: number) => {
+    let data = await productAPI.getProduct(productId);
+    return data
+  };
 
   return (
     <div>

@@ -8,38 +8,24 @@ type PopularPropsType = {
   setProductId: React.Dispatch<React.SetStateAction<number>>;
 };
 
+const getProducts = async () => {
+  let data = await productsAPI.popular();
+  const newProducts: Array<ProductType> = [];
+  for (let i = 0; i < 3; i++) {
+    newProducts.push(data[i]);
+  }
+  return newProducts;
+};
+
 export const Popular = ({ setProductId }: PopularPropsType) => {
   const [products, setProducts] = useState<Array<ProductType>>([]);
   const [isFetching, setIsFetching] = useState(true);
 
-  // useEffect(() => {
-  //     setIsFetching(true)
-  //     axios
-  //     .get('http://makeup-api.herokuapp.com/api/v1/products.json?rating_greater_than=2.5')
-  //     .then((res) => {
-  //         const newProducts: Array<ProductType> = []
-  //         for (let i = 0; i < 3; i++) {
-  //             newProducts.push(res.data[i])
-  //         }
-  //         setProducts(newProducts)
-  //         setIsFetching(false)
-  //     })
-  // }, [])
-
   useEffect(() => {
     setIsFetching(true);
-    getProducts();
-  }, []);
-
-  const getProducts = async () => {
-    let data = await productsAPI.popular();
-    const newProducts: Array<ProductType> = [];
-    for (let i = 0; i < 3; i++) {
-      newProducts.push(data[i]);
-    }
-    setProducts(newProducts);
+    getProducts().then((data) => setProducts(data));
     setIsFetching(false);
-  };
+  }, []);
 
   return (
     <div className="row">

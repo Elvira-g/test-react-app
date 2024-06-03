@@ -6,19 +6,19 @@ import { Slide } from "./Slide";
 
 type Props = {};
 
+const getTestimonials = async () => {
+  let data = await testimonialsAPI();
+  return data
+};
+
 export const Testimonial = (props: Props) => {
   const [testimonials, setTestimonials] = useState<
     Array<TestimonialType> | undefined
   >();
 
   useEffect(() => {
-    getTestimonials();
+    getTestimonials().then((data) => setTestimonials(data));
   }, []);
-
-  const getTestimonials = async () => {
-    let data = await testimonialsAPI();
-    setTestimonials(data);
-  };
 
   const settings = {
     dots: true,

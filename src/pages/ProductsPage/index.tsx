@@ -1,5 +1,5 @@
 import React from "react";
-import { Hero } from "../../components/Hero/Hero";
+import { Hero } from "../../components/Hero";
 import { Products } from "./Products/Products";
 
 type ProductsPagePropsType = {

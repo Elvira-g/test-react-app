@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Hero } from "../../components/Hero/Hero";
+import { Hero } from "../../components/Hero";
 import { store } from "../../store/store";
 import { FaqItem } from "../../types";
 import { AccordionItem } from "./AccordionItem/AccordionItem";

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TabContentType } from "../../../types";
 
 type TabContentPropsType = {
@@ -19,10 +20,10 @@ export const TabContent = ({ tab }: TabContentPropsType) => {
             <p>{tab.text}</p>
 
             <div className="mt-2 mt-lg-auto">
-              <a href={tab.link} className="custom-link mb-2">
+              <Link to={tab.link} className="custom-link mb-2">
                 Learn more about us
                 <i className="bi-arrow-right ms-2"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

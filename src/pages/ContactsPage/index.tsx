@@ -1,6 +1,6 @@
 import img from "../../assets/img/header/positive-european-woman-has-break-after-work.jpg";
 import { FormContacts } from "../../components/Form/FormContacts";
-import { Hero } from "../../components/Hero/Hero";
+import { Hero } from "../../components/Hero";
 import { Contacts } from "./Contacts";
 
 type ContactsPagePropsType = {};
